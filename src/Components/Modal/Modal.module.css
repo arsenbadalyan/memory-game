@@ -1,0 +1,52 @@
+.Modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Modal_inner {
+  min-width: 30%;
+  max-width: 90%;
+  background: #30332e;
+  padding: 2vh;
+  box-shadow: 0 0 10px 0 #30332e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2vh;
+  border-radius: 15px;
+}
+.title {
+  font-size: 1.5rem;
+}
+.text {
+  font-size: 1.2rem;
+}
+.variants {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
+}
+.variants button {
+  font-size: inherit;
+  font-weight: bold;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #62bbc1;
+  color: white;
+  border: none;
+  box-shadow: 0 0 10px 0 #62bbc1;
+  border-radius: 5px;
+}
+.variants button:hover {
+  color: #62bbc1;
+  background: white;
+}

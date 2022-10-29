@@ -1,0 +1,60 @@
+/* Main Config */
+.Start_Page {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  margin: auto;
+  box-shadow: 0 0 10px 0 white;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Start Page title design */
+.start_page__title {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 10px;
+  animation: blink-name 1s infinite;
+}
+@keyframes blink-name {
+  0%,
+  100% {
+    color: white;
+  }
+  50% {
+    color: #62bbc1;
+    text-shadow: 0 0 5px #62bbc1;
+  }
+}
+/* Content for fill */
+.start_page__content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Start Page Menu */
+.start_page__menu {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.start_page__menu_item {
+  color: black;
+  background: #62bbc1;
+  margin: 10px 0;
+  font-size: 1.5rem;
+  padding: 10px 0;
+  border-radius: 15px;
+  transition: all 500ms;
+}
+.start_page__menu_item:hover {
+  background: black;
+  color: #62bbc1;
+  box-shadow: 0 0 10px 0 white;
+}

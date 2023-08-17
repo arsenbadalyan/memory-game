@@ -11,6 +11,7 @@ import logo_5 from '../../imgs/cards/5.png';
 import logo_6 from '../../imgs/cards/6.png';
 import { useMemo } from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const makeGameArr = (...list) => {
   // console.log(list);
@@ -30,7 +31,7 @@ let imageList;
 const Game = () => {
   const [modalSettings, setModalSettings] = useState({ show: false });
   const [openedCard, setOpenedCard] = useState([]);
-  const [wait, setWait] = useState(false);
+  const [wait, setWait] = useState(true);
   let [scoreCounter, setScoreCounter] = useState({
     all: 0,
     win: 0,
@@ -40,17 +41,33 @@ const Game = () => {
   useMemo(() => {
     imageList = makeGameArr(logo_1, logo_2, logo_3, logo_4, logo_5, logo_6);
   }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      const select = document.querySelectorAll('.c_l__click');
+      select.forEach((el) => {
+        const current = el.children[0];
+        current.style.transform = 'rotateY(-180deg)';
+      });
+      setTimeout(() => {
+        select.forEach((el) => {
+          const current = el.children[0];
+          current.style.transform = 'rotateY(0deg)';
+          setWait(false);
+        });
+      }, 1000);
+    }, 500);
+  }, []);
   const handleCardClick = (index) => {
     const select = document.querySelectorAll('.c_l__click');
     const el = select[index];
 
     const current = el.children[0];
     if (!wait && current.style.transform !== 'rotateY(-180deg)') {
-      setScoreCounter({ ...scoreCounter, all: scoreCounter.all + 1 });
       const attrValue = el.attributes['data-img'].value;
       let cards = openedCard;
       current.style.transform = 'rotateY(-180deg)';
       if (cards.length === 0) {
+        setScoreCounter({ ...scoreCounter, all: scoreCounter.all + 1 });
         cards.push({ url: attrValue, id: index });
         setOpenedCard(cards);
       } else {

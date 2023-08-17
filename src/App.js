@@ -2,7 +2,7 @@
 import Footer from './Components/Footer/Footer';
 import Start from './Components/Start/Start';
 // Other
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Game from './Components/Game/Game';
 
@@ -14,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Start />} />
             <Route path="/game" element={<Game />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
         <Footer />
